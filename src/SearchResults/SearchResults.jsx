@@ -2,11 +2,12 @@ import styles from './SearchResults.module.css'
 import Tracklist from '../Tracklist/Tracklist';
 
 
-function SearchResults({tracks}) {
+
+function SearchResults({tracks, addButtonHandler}) {
     return (
         <div className={styles.songs}>
             <h1>Results</h1>
-            <Tracklist tracks={tracks} />
+            <Tracklist tracks={tracks} addButtonHandler={addButtonHandler}/>
         </div>     
     )
 }

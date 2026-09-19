@@ -5,8 +5,8 @@ import SearchResults from '../SearchResults/SearchResults'
 import Playlist from '../Playlist/Playlist'
 
 function App() {
-    const tracks = [
-        {
+    const [tracks, setTracks] = useState([
+           {
             name: "test",
             artist: "test",
             album: "test",
@@ -36,10 +36,10 @@ function App() {
             album: "test4",
             id: 4
         }
-    ]
-    const playlistName = 'MySongs';
-    const playlistTracks = [
-           {
+    ])
+    const [playlistName, setPlaylistName] = useState('MyPlaylist');
+    const [playlistTracks, setPlaylistTracks] = useState([
+        {
             name: "test5",
             artist: "test5",
             album: "test5",
@@ -69,14 +69,22 @@ function App() {
             album: "test9",
             id: 9
         }
-    ]
+    ])
+   
+
+    function addButtonHandler(track) {
+        for (let i = 0; i < playlistTracks.length; i++ ) {
+            if (track.id === playlistTracks[i].id) return; 
+        }
+        setPlaylistTracks(prev => [...prev, track]);
+    }
 
     return (
         <>
         <SearchBar />
         <div className={styles.songs}>
-            <SearchResults tracks={tracks}/>
-            <Playlist name={playlistName} tracks={playlistTracks}/>
+            <SearchResults tracks={tracks} addButtonHandler={addButtonHandler}/>
+            <Playlist name={playlistName} tracks={playlistTracks} />
         </div>
         </>
     )
