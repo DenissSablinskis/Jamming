@@ -7,7 +7,7 @@ function SearchResults({tracks, addButtonHandler}) {
     return (
         <div className={styles.songs}>
             <h1>Results</h1>
-            <Tracklist tracks={tracks} addButtonHandler={addButtonHandler}/>
+            <Tracklist tracks={tracks} addButtonHandler={addButtonHandler} />
         </div>     
     )
 }

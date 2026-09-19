@@ -1,6 +1,6 @@
 import styles from './Track.module.css'
 
-function Track({track, addButtonHandler}) {
+function Track({track, addButtonHandler, isPlaylist, removeButtonHandler}) {
     return (
         <div className={styles.tracks}>
             <div>
@@ -9,7 +9,11 @@ function Track({track, addButtonHandler}) {
                 <p>Album: {track.album}</p>
             </div>
             <div>
-                <button onClick={() => addButtonHandler(track)}>+</button>
+                {isPlaylist ? (
+                    <button onClick={() => removeButtonHandler(track)}>-</button>
+                ) : (
+                    <button onClick={() => addButtonHandler(track)}>+</button>
+                )}
             </div>
         </div>
     )

@@ -79,12 +79,17 @@ function App() {
         setPlaylistTracks(prev => [...prev, track]);
     }
 
+    function removeButtonHandler(track) {
+        setPlaylistTracks(prev => prev.filter(playlistTrack => playlistTrack.id !== track.id));
+        }
+    
+
     return (
         <>
         <SearchBar />
         <div className={styles.songs}>
             <SearchResults tracks={tracks} addButtonHandler={addButtonHandler}/>
-            <Playlist name={playlistName} tracks={playlistTracks} />
+            <Playlist name={playlistName} tracks={playlistTracks} removeButtonHandler={removeButtonHandler}/>
         </div>
         </>
     )
