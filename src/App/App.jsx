@@ -37,13 +37,46 @@ function App() {
             id: 4
         }
     ]
+    const playlistName = 'MySongs';
+    const playlistTracks = [
+           {
+            name: "test5",
+            artist: "test5",
+            album: "test5",
+            id: 5
+        },
+        {
+            name: "test6",
+            artist: "test6",
+            album: "test6",
+            id: 6
+        },
+        {
+            name: "test7",
+            artist: "test7",
+            album: "test7",
+            id: 7
+        },
+        {
+            name: "test8",
+            artist: "test8",
+            album: "test8",
+            id: 8
+        },
+            {
+            name: "test9",
+            artist: "test9",
+            album: "test9",
+            id: 9
+        }
+    ]
 
     return (
         <>
         <SearchBar />
         <div className={styles.songs}>
             <SearchResults tracks={tracks}/>
-            <Playlist />
+            <Playlist name={playlistName} tracks={playlistTracks}/>
         </div>
         </>
     )
