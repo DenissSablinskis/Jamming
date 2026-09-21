@@ -1,8 +1,37 @@
 .tracks {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    gap: 16px;
     width: 100%;
-    border: 1px solid white;
-    border-radius: 5px;
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+    box-sizing: border-box;
+}
+
+.tracks h3 {
+    margin: 0 0 4px;
+    color: var(--text-h);
+    font-size: 16px;
+}
+
+.tracks p {
+    color: var(--text);
+    font-size: 14px;
+}
+
+.tracks button {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+    color: var(--accent);
+    background: var(--accent-bg);
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.tracks button:hover {
+    color: #fff;
+    background: var(--accent);
 }
