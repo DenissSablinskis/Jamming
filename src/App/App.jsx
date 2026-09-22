@@ -99,15 +99,20 @@ function App() {
         setPlaylistTracks([]);
     }
 
+    function changePlaylistName({target}) {
+        if (target.value.trim()) {
+            setPlaylistName(target.value.trim());
+        }
+    }
 
-    
+
 
     return (
         <>
         <SearchBar />
         <div className={styles.songs}>
             <SearchResults tracks={tracks} addButtonHandler={addButtonHandler}/>
-            <Playlist name={playlistName} tracks={playlistTracks} removeButtonHandler={removeButtonHandler} addToAccount={addToAccount}/>
+            <Playlist name={playlistName} tracks={playlistTracks} removeButtonHandler={removeButtonHandler} addToAccount={addToAccount} changePlaylistName={changePlaylistName}/>
         </div>
         </>
     )

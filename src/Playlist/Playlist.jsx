@@ -1,12 +1,12 @@
 import Tracklist from "../Tracklist/Tracklist";
 import styles from './Playlist.module.css';
 
-function Playlist({name, tracks, removeButtonHandler,addToAccount}) {
+function Playlist({tracks, removeButtonHandler,addToAccount, playlistName, changePlaylistName}) {
     return (
         <div className={styles.songs}>
-            <h1>Playlist: {name}</h1>
+            <input name='text' onChange={changePlaylistName} value={playlistName}/>
             <Tracklist tracks={tracks} isPlaylist removeButtonHandler={removeButtonHandler}/>
-            <button onClick={() => addToAccount()}>SAVE TO SPOTIFY</button>
+            <button onClick={addToAccount}>SAVE TO SPOTIFY</button>
         </div>
     )
 }
