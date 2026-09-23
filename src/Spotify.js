@@ -72,7 +72,7 @@ if (code) {
     );
 } else if (error) {
     console.log('Spotify authorization failed:', error);
-} else {
+} else if (!getAccessToken()) {
     window.localStorage.setItem('code_verifier', codeVerifier);
 
     const params = {
