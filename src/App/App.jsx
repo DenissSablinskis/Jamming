@@ -100,9 +100,7 @@ function App() {
     }
 
     function changePlaylistName({target}) {
-        if (target.value.trim()) {
-            setPlaylistName(target.value.trim());
-        }
+        setPlaylistName(target.value.trim());
     }
 
 
