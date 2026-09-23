@@ -3,45 +3,10 @@ import styles from './App.module.css'
 import SearchBar from '../SearchBar/SearchBar'
 import SearchResults from '../SearchResults/SearchResults'
 import Playlist from '../Playlist/Playlist'
+import { search } from '../Spotify'
 
 function App() {
-    const [tracks, setTracks] = useState([
-           {
-            name: "test",
-            artist: "test",
-            album: "test",
-            id: 0,
-            uri: "spotify:track:abc"
-        },
-        {
-            name: "test1",
-            artist: "test1",
-            album: "test1",
-            id: 1,
-            uri: "spotify:track:def"
-        },
-        {
-            name: "test2",
-            artist: "test2",
-            album: "test2",
-            id: 2,
-            uri: "spotify:track:ghi"
-        },
-        {
-            name: "test3",
-            artist: "test3",
-            album: "test3",
-            id: 3,
-            uri: "spotify:track:jkl"
-        },
-            {
-            name: "test4",
-            artist: "test4",
-            album: "test4",
-            id: 4,
-            uri: "spotify:track:mno"
-        }
-    ])
+    const [tracks, setTracks] = useState([])
     const [playlistName, setPlaylistName] = useState('MyPlaylist');
     const [playlistTracks, setPlaylistTracks] = useState([
         {
@@ -103,11 +68,14 @@ function App() {
         setPlaylistName(target.value.trim());
     }
 
-
+    async function searchHandler(term) {
+        const results = await search(term);
+        setTracks(results);
+    }
 
     return (
         <>
-        <SearchBar />
+        <SearchBar searchHandler={searchHandler}/>
         <div className={styles.songs}>
             <SearchResults tracks={tracks} addButtonHandler={addButtonHandler}/>
             <Playlist name={playlistName} tracks={playlistTracks} removeButtonHandler={removeButtonHandler} addToAccount={addToAccount} changePlaylistName={changePlaylistName}/>

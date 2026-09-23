@@ -101,4 +101,36 @@ function getAccessToken() {
     return null;
 }
 
-export { getAccessToken };
+
+async function search(term) {
+    const accessToken = getAccessToken();
+
+    const params = new URLSearchParams({
+        q: term,
+        type: 'track'
+    });
+
+    const url = `https://api.spotify.com/v1/search?${params}`;
+    const payload = {
+        headers: {
+        Authorization: `Bearer ${accessToken}`,
+        },
+    }
+
+    const response = await fetch(url, payload);
+    const data = await response.json();
+
+    const tracks = data.tracks.items.map(track => {
+        return {
+            id: track.id,
+            name: track.name,
+            artist: track.artists[0].name,
+            album: track.album.name,
+            uri: track.uri
+        };
+    });
+
+    return tracks;
+}
+
+export { getAccessToken, search };
