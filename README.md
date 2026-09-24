@@ -1,16 +1,55 @@
-# React + Vite
+# Jammming
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Jammming is a React web application that allows users to search for songs using the Spotify API, create custom playlists, and save them to their Spotify account.
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React
+- JavaScript
+- HTML
+- CSS
+- Spotify Web API
+- Vite
+- Git / GitHub
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Search for songs by title
+- Display song title, artist, and album
+- Add songs to a custom playlist
+- Remove songs from the playlist
+- Change the playlist name
+- Save playlists to a Spotify account
+- Spotify authentication using OAuth
 
-## Expanding the ESLint configuration
+## How to Run
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository:
+```bash
+git clone https://github.com/DenissSablinskis/Jamming.git
+ ```
+
+2. Navigate to the project directory:
+
+```bash
+cd Jamming
+```
+
+3. Install dependencies:
+```bash
+npm install
+```
+
+4. Start the development server:
+```bash
+npm run dev
+```
+The application will be available at the local URL provided by Vite.
+
+## Future Work
+
+- Search by artist and genre
+- Improve the user interface
+- Add playlist editing options
+- Add more Spotify features
+- Deploy the application
