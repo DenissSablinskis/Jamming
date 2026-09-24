@@ -15,9 +15,9 @@ function submitFormHandler(e) {
 }
 
     return (
-        <form onSubmit={submitFormHandler}>
-            <input type='text' value={searchTerm} onChange={inputChangeHandler}/>
-            <button type='submit'>Search</button>
+        <form className={styles.search} onSubmit={submitFormHandler}>
+            <input className={styles.input} type='text' value={searchTerm} onChange={inputChangeHandler}/>
+            <button className={styles.button} type='submit'>Search</button>
         </form>
     )
 }

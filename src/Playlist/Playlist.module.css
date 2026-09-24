@@ -19,4 +19,20 @@
 
 .songs > button:hover {
     background: var(--accent-dark);
-} 
+}
+
+.input {
+    width: 100%;
+    padding: 10px 0;
+    color: var(--text-h);
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--border);
+    outline: none;
+    font-weight: 700;
+    box-sizing: border-box;
+}
+
+.input:focus {
+    border-color: var(--accent);
+}
