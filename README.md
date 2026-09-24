@@ -53,3 +53,18 @@ The application will be available at the local URL provided by Vite.
 - Add playlist editing options
 - Add more Spotify features
 - Deploy the application
+
+## Testing
+
+The main features of the application were tested manually.
+
+| Test Case | Expected Result | Result |
+|---|---|---|
+| Search for a song | Matching songs are displayed with title, artist, and album | Passed |
+| Add a song to the playlist | The selected song appears in the playlist | Passed |
+| Add the same song twice | The song is not added more than once | Passed |
+| Remove a song from the playlist | The selected song is removed from the playlist | Passed |
+| Change playlist name | The playlist name is updated | Passed |
+| Save playlist to Spotify | A new playlist is created in the user's Spotify account with the selected tracks | Passed |
+| Spotify authentication | The user can authorize the application | Passed |
+| Search with no results | No tracks are displayed when there are no matching results | Passed |
