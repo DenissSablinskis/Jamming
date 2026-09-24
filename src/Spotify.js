@@ -25,7 +25,7 @@ const codeChallenge = base64encode(hashed);
 const clientId = 'dc591a7435634ca4b6a89da0cd1d9cec';
 const redirectUri = 'http://127.0.0.1:5173';
 
-const scope = 'user-read-private user-read-email';
+const scope = 'user-read-private user-read-email playlist-modify-public';
 const authUrl = new URL('https://accounts.spotify.com/authorize');
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -133,4 +133,44 @@ async function search(term) {
     return tracks;
 }
 
-export { getAccessToken, search };
+async function createPlaylist(name) {
+    const accessToken = getAccessToken();
+    const url = `https://api.spotify.com/v1/me/playlists`;
+    const payload = {
+        method : 'POST',
+        headers: {
+            Authorization: `Bearer ${accessToken}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name: name
+        })
+    }
+
+    const response = await fetch(url, payload);
+    const data = await response.json();
+
+    return data.id;
+}
+
+async function addTracks(trackList, name) {
+    const accessToken = getAccessToken();
+    const playlist_id = await createPlaylist(name);
+    const url = `https://api.spotify.com/v1/playlists/${playlist_id}/items`;
+    const payload = {
+        method : 'POST',
+        headers: {
+            Authorization: `Bearer ${accessToken}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            uris: trackList
+        })
+    }
+
+    const response = await fetch(url, payload);
+
+}
+
+
+export { search, addTracks };
